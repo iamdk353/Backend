@@ -20,9 +20,8 @@ const login = async (req, res) => {
       res.status(code.NOT_FOUND).json({ msg: "wrong credentials" });
       return;
     } else {
-      const token = jwt.sign({ found }, process.env.JWT_SECRET);
-      res.cookie("token", token);
-      res.json("User verified");
+      const token = jwt.sign({ id: found._id }, process.env.JWT_SECRET);
+      res.json({ msg: token, info: "user verified" });
 
       return;
     }
