@@ -1,12 +1,13 @@
 import user from "../Models/userModel.js";
 import code from "http-status-codes";
+import jwt from "jsonwebtoken";
 const login = async (req, res) => {
   const { username, password } = req.body;
   try {
     if (!username || !password) {
       res
         .status(code.BAD_REQUEST)
-        .json({ msg: "username or password is required" });
+        .json({ msg: "username and password is required" });
       return;
     }
     const found = await user.findOne({ username });
@@ -19,11 +20,14 @@ const login = async (req, res) => {
       res.status(code.NOT_FOUND).json({ msg: "wrong credentials" });
       return;
     } else {
-      res.json("user is verified create json");
+      const token = jwt.sign({ found }, process.env.JWT_SECRET);
+      res.cookie("token", token);
+      res.json("User verified");
+
       return;
     }
   } catch (error) {
-    res.status(500).json(error.message);
+    res.status(500).json({ error: error.message });
   }
 };
 export default login;

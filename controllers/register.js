@@ -7,7 +7,7 @@ const register = async (req, res) => {
     console.log({ username, password });
     res.status(code.CREATED).json({ msg: "user created" });
   } catch (error) {
-    res.status(500).json(error.message);
+    res.status(500).json({ error: error.message });
   }
 };
 export default register;
