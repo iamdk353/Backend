@@ -9,7 +9,7 @@ import cookieParser from "cookie-parser";
 
 const app = express();
 const port = process.env.PORT || 5000;
-const mongoUri = process.env.MONGO_URI || "mongodb://localhost:27017";
+const mongoUri = process.env.MONGO_URI || "mongodb://localhost:27017/users";
 
 app.use(
   cors({

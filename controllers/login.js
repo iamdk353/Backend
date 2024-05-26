@@ -1,8 +1,10 @@
 import user from "../Models/userModel.js";
 import code from "http-status-codes";
 import jwt from "jsonwebtoken";
+import bcrypt from "bcrypt";
 const login = async (req, res) => {
   const { username, password } = req.body;
+  // console.log({ username, password });
   try {
     if (!username || !password) {
       res
@@ -15,8 +17,10 @@ const login = async (req, res) => {
       res.status(code.NOT_FOUND).json({ msg: "wrong credentials" });
       return;
     }
-    if (found.password !== password) {
-      console.log("wrong password");
+    const match = bcrypt.compareSync(password, found.password);
+
+    if (!match) {
+      // console.log("wrong password");
       res.status(code.NOT_FOUND).json({ msg: "wrong credentials" });
       return;
     } else {

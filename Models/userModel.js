@@ -18,6 +18,10 @@ const userSchema = new Schema({
     ],
     required: [true, "password is required"],
   },
+  location: {
+    type: String,
+    default: "Bengaluru",
+  },
 });
 const user = mongoose.model("USER", userSchema);
 export default user;
