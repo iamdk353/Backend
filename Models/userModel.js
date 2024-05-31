@@ -5,7 +5,6 @@ const userSchema = new Schema({
     type: String,
     trim: true,
     minLength: [5, "minimum length is 5 please increrase length of your name"],
-    maxLength: [15, "maximum length is 15 please decrease length of your name"],
     required: [true, "user name is required"],
     unique: true,
   },
