@@ -1,13 +1,13 @@
 // imports
 import express from "express";
 import AuthRouter from "./Routers/authRoutes.js";
-
 import dotenv from "dotenv";
 dotenv.config();
 import mongoose from "mongoose";
 import cors from "cors";
-import userRoutes from "./Routers/userRoutes.js";
+import jobRoutes from "./Routers/jobRoutes.js";
 import cookieParser from "cookie-parser";
+import whoami from "./Routers/whoAmI.js";
 
 // assignments
 const app = express();
@@ -24,8 +24,8 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: false }));
 app.use("/api/auth", AuthRouter);
-
-app.use("/api/user", userRoutes);
+app.use("/api/verify", whoami);
+app.use("/api/job", jobRoutes);
 //connection
 mongoose
   .connect(mongoUri)
