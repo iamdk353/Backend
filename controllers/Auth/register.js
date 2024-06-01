@@ -1,4 +1,4 @@
-import user from "../Models/userModel.js";
+import user from "../../Models/jobs.js";
 import code from "http-status-codes";
 import bcrypt from "bcrypt";
 const register = async (req, res) => {
