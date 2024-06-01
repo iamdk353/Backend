@@ -24,7 +24,11 @@ const userSchema = new Schema({
   name: {
     type: String,
     trim: true,
-    required: [true, "user name is required"],
+    required: [true, "name is required"],
+  },
+  profile: {
+    type: Number,
+    default: 1,
   },
 });
 const user = mongoose.model("USER", userSchema);

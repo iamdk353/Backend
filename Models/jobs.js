@@ -1,8 +1,12 @@
 import mongoose, { Schema } from "mongoose";
-
+company: "SEW";
+jobstatus: "Interview";
+jobtype: "Full time";
+location: "SEW";
+position: "SEW";
 const jobsSchema = new Schema(
   {
-    title: {
+    company: {
       type: String,
       trim: true,
       minLength: [
@@ -15,24 +19,21 @@ const jobsSchema = new Schema(
       ],
     },
     createdBy: { type: mongoose.Schema.Types.ObjectId },
-    desc: {
-      type: String,
-      trim: true,
-      maxLength: [
-        99,
-        "minimum length is 99 please increrase length of your password",
-      ],
-      required: [true, "desc is required"],
-    },
-    jobStatus: {
+    jobstatus: {
       type: String,
       enum: ["Pending", "Interview", "Declined", "Hiring"],
       default: "Hiring",
     },
-    jobType: {
+    jobtype: {
       type: String,
       enum: ["Full time", "Part time", "Internship"],
       default: "Full time",
+    },
+    location: {
+      type: String,
+    },
+    position: {
+      type: String,
     },
   },
   { timestamps: true }
