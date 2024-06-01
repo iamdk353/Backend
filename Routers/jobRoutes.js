@@ -11,9 +11,9 @@ import {
 
 const userRoutes = express.Router();
 
-userRoutes.get("/job", verifytoken, getAlljobs);
-userRoutes.post("/job", verifytoken, newjob);
-userRoutes.get("/job/:id", verifytoken, getjob);
-userRoutes.put("/job/:id", verifytoken, updatejob);
-userRoutes.delete("/job/:id", verifytoken, deletejob);
+userRoutes.get("/", verifytoken, getAlljobs);
+userRoutes.post("/", verifytoken, newjob);
+userRoutes.get("/:id", verifytoken, getjob);
+userRoutes.put("/:id", verifytoken, updatejob);
+userRoutes.delete("/:id", verifytoken, deletejob);
 export default userRoutes;
