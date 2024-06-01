@@ -2,7 +2,7 @@ import user from "../Models/userModel.js";
 import code from "http-status-codes";
 import bcrypt from "bcrypt";
 const register = async (req, res) => {
-  const { username, password } = req.body;
+  const { username, password, name } = req.body;
   try {
     if (password.length < 8) {
       throw new Error("password must be greater than 8 characters");

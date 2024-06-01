@@ -21,6 +21,11 @@ const userSchema = new Schema({
     type: String,
     default: "Bengaluru",
   },
+  name: {
+    type: String,
+    trim: true,
+    required: [true, "user name is required"],
+  },
 });
 const user = mongoose.model("USER", userSchema);
 export default user;
