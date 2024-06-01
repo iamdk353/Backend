@@ -17,12 +17,9 @@ const jobsSchema = new Schema(
     createdBy: { type: mongoose.Schema.Types.ObjectId },
     jobstatus: {
       type: String,
-      enum: ["Pending", "Interview", "Declined", "Hiring"],
-      default: "Hiring",
     },
     jobtype: {
       type: String,
-      enum: ["Full time", "Part time", "Internship"],
       default: "Full time",
     },
     location: {
@@ -30,6 +27,7 @@ const jobsSchema = new Schema(
     },
     position: {
       type: String,
+      default: "Interview",
     },
   },
   { timestamps: true }

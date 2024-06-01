@@ -11,7 +11,7 @@ export const newjob = async (req, res) => {
       position,
       createdBy: curUserId,
     });
-    res.json(created);
+    res.json({ msg: "job created" });
   } catch (error) {
     res.json(error.message);
   }
