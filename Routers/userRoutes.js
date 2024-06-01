@@ -2,12 +2,12 @@ import express from "express";
 import dashboard from "../controllers/dashboard.js";
 import verifytoken from "../middlewears/verifytoken.js";
 import {
+  deletejob,
   getAlljobs,
   getjob,
   newjob,
   updatejob,
-  deletejob,
-} from "../controllers/jobControllers.js";
+} from "../controllers/Jobs/Exporter.js";
 import userCreatedJobs from "../controllers/userCreatedJobs.js";
 import whoAmI from "../controllers/whoAmI.js";
 const userRoutes = express.Router();

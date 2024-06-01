@@ -1,9 +1,5 @@
 import mongoose, { Schema } from "mongoose";
-company: "SEW";
-jobstatus: "Interview";
-jobtype: "Full time";
-location: "SEW";
-position: "SEW";
+
 const jobsSchema = new Schema(
   {
     company: {
