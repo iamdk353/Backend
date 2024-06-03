@@ -1,4 +1,5 @@
 import jobs from "../../Models/jobs.js";
+import code from "http-status-codes";
 export const newjob = async (req, res) => {
   const curUserId = req.verifiedUser._id;
   try {
@@ -13,6 +14,6 @@ export const newjob = async (req, res) => {
     });
     res.json({ msg: "job created" });
   } catch (error) {
-    res.json(error.message);
+    res.status(code.INTERNAL_SERVER_ERROR).json(error.message);
   }
 };

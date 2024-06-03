@@ -17,6 +17,7 @@ const jobsSchema = new Schema(
     createdBy: { type: mongoose.Schema.Types.ObjectId },
     jobstatus: {
       type: String,
+      default: "Interview",
     },
     jobtype: {
       type: String,
@@ -27,7 +28,6 @@ const jobsSchema = new Schema(
     },
     position: {
       type: String,
-      default: "Interview",
     },
   },
   { timestamps: true }
