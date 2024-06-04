@@ -6,7 +6,7 @@ const userCreatedJobs = async (req, res) => {
     const job = await jobs.find({ createdBy: _id });
     res.json({ job });
   } catch (error) {
-    res.json({ error });
+    res.status(500).json({ error });
   }
 };
 export default userCreatedJobs;
