@@ -9,8 +9,7 @@ const updateprofile = async (req, res) => {
         { runValidators: true, new: true }
       )
       .select("-password");
-
-    res.json(found);
+    res.json({ updated: true });
   } catch (error) {
     res.json(error.message);
   }
